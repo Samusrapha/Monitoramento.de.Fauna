@@ -23,6 +23,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -103,6 +106,8 @@ public class Formulario extends AppCompatActivity {
         });
 
 
+
+
         edtpar = (EditText) findViewById(R.id.edtpar);
         edtdata = (EditText) findViewById(R.id.edtdata);
         spnplato = (Spinner) findViewById(R.id.spnplato);
@@ -143,12 +148,35 @@ public class Formulario extends AppCompatActivity {
         adpmetodo.add("0-Avistamento");
         adpmetodo.add("1-Camera");
 
+        if(Database == null) {
+            Database = new Database(this);
+        }
+        Conn = Database.getWritableDatabase();
+        repositorioformulario = new Repositorioformulario(Conn);
+        List<String> lables =repositorioformulario.getAllLabels();
+        // Creating adapter for spinner
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, lables);
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        adpespecie= dataAdapter;
+        spnespecie.setAdapter(adpespecie);
+
+
+
+/*
+        for (   int i = 0; i< lables.size() -1; i++)
+        {
+            adpespecie.add(lables.get(i));
+        }
 
         adpespecie.add("0-Cutia");
         adpespecie.add("1-Papagaio");
         adpespecie.add("2-Macaco Aranha");
         adpespecie.add("3-Tamanduá Bandeira");
-
+*/
 
        // TODO CONTINUAR TENTANDO BUSCAR ESPECIE DO BANCO DE DADOS.
        // TODO TENTATIVA 1
@@ -166,7 +194,13 @@ public class Formulario extends AppCompatActivity {
         // database handler
         //DatabaseSpinner db = new DatabaseSpinner(getApplicationContext());
         // Spinner Drop down elements
-        List<String> lables = Database.getAllLabels();
+
+      /*  if(Database == null) {
+            Database = new Database(this);
+        }
+        Conn = Database.getWritableDatabase();
+        repositorioformulario = new Repositorioformulario(Conn);
+        List<String> lables =repositorioformulario.getAllLabels();
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, lables);
@@ -174,14 +208,14 @@ public class Formulario extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
         adpespecie= dataAdapter;
-
-
-       //-----------------------------------------------------------------------------------
-
+        spnespecie.setAdapter(adpespecie); */
 
 
 
 
+
+
+        //-----------------------------------------------------------------------------------
 
 
 

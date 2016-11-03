@@ -41,39 +41,26 @@ import br.com.greenowl.monitoramentodefauna.Dominio.Repositorioformulario;
 import br.com.greenowl.monitoramentodefauna.Util.DateUtil;
 
 public class Formulario extends AppCompatActivity {
-
-
-
     private EditText edtpar;
     private EditText edtdata;
-
     private Spinner spnplato;
     private Spinner spnambiente;
     private Spinner spnperiodo;
     private Spinner spnmetodo;
     private Spinner spnespecie;
-
-
-
-
     private ArrayAdapter<String> adpplato;
     private ArrayAdapter<String> adpambiente;
     private ArrayAdapter<String> adpperiodo;
     private ArrayAdapter<String> adpmetodo;
     private ArrayAdapter<String> adpespecie;
     private ArrayList<String>  arlespecie;
-
-
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     private SQLiteDatabase Conn;
     private Repositorioformulario repositorioformulario;
     private Registros registros;
 
 
-
-
-
-
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
     @Override
@@ -83,16 +70,15 @@ public class Formulario extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ((Button)findViewById(R.id.btnnovo)).setOnClickListener(new View.OnClickListener() {
+
+        ((Button) findViewById(R.id.btnnovo)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent intent = new Intent(v.getContext(), CadastroEspecie.class);
                 startActivityForResult(intent, 0);
-
             }
         });
+
 
 
 
@@ -100,10 +86,14 @@ public class Formulario extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                salvar();
-                finish();
+                new Picture();
             }
         });
+
+
+
+
+
 
 
 
@@ -164,58 +154,6 @@ public class Formulario extends AppCompatActivity {
         adpespecie= dataAdapter;
         spnespecie.setAdapter(adpespecie);
 
-
-
-/*
-        for (   int i = 0; i< lables.size() -1; i++)
-        {
-            adpespecie.add(lables.get(i));
-        }
-
-        adpespecie.add("0-Cutia");
-        adpespecie.add("1-Papagaio");
-        adpespecie.add("2-Macaco Aranha");
-        adpespecie.add("3-Tamanduá Bandeira");
-*/
-
-       // TODO CONTINUAR TENTANDO BUSCAR ESPECIE DO BANCO DE DADOS.
-       // TODO TENTATIVA 1
-/*
-        Spinner spinner=(Spinner)findViewById(R.id.spnespecie);
-        ArrayList<String> list=Database.getAllProvinces();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_formulario, list);
-        spinner.setAdapter(adapter);
-
-        ArrayList<String> lstespecies=Database.getAllProvinces();
-        adpespecie.add(String.valueOf(lstespecies));
-
-*/
-        // TODO TENTATIVA 2
-        // database handler
-        //DatabaseSpinner db = new DatabaseSpinner(getApplicationContext());
-        // Spinner Drop down elements
-
-      /*  if(Database == null) {
-            Database = new Database(this);
-        }
-        Conn = Database.getWritableDatabase();
-        repositorioformulario = new Repositorioformulario(Conn);
-        List<String> lables =repositorioformulario.getAllLabels();
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, lables);
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        adpespecie= dataAdapter;
-        spnespecie.setAdapter(adpespecie); */
-
-
-
-
-
-
-        //-----------------------------------------------------------------------------------
 
 
 
@@ -441,6 +379,12 @@ public class Formulario extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
 
     }
+
+
+
+
+
+
 
 
 }

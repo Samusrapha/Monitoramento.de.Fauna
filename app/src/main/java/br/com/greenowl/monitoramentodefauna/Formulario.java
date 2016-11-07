@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -53,22 +54,29 @@ public class Formulario extends AppCompatActivity {
     private ArrayAdapter<String> adpperiodo;
     private ArrayAdapter<String> adpmetodo;
     private ArrayAdapter<String> adpespecie;
-    private ArrayList<String>  arlespecie;
+
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     private SQLiteDatabase Conn;
     private Repositorioformulario repositorioformulario;
     private Registros registros;
+    private String titulo;
 
-
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarf);
         setSupportActionBar(toolbar);
+
+
+        // TODO CRIAR METODO QUE MUDA TITULO
+        titulo = getIntent().getDataString();
+
+        getSupportActionBar().setTitle("avifauna");
+
+
 
 
         ((Button) findViewById(R.id.btnnovo)).setOnClickListener(new View.OnClickListener() {

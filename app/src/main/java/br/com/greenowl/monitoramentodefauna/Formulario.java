@@ -72,6 +72,9 @@ public class Formulario extends AppCompatActivity {
 
 
         // TODO CRIAR METODO QUE MUDA TITULO
+
+        Intent tit = getIntent();
+        //String titulo = (titulo)tit.getDataString("titulo");
         titulo = getIntent().getDataString();
 
         getSupportActionBar().setTitle("avifauna");

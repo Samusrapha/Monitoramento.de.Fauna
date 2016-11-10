@@ -13,18 +13,34 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import br.com.greenowl.monitoramentodefauna.Database.Database;
+import br.com.greenowl.monitoramentodefauna.Util.ConnectionClass;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    ConnectionClass connectionClass;
+    EditText edtuserid,edtpass;
+    Button btnlogin;
+    ProgressBar pbbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        connectionClass = new ConnectionClass(); &nbsp;//the class file
+        edtuserid = (EditText) findViewById(R.id.edtuserid);
+        edtpass = (EditText) findViewById(R.id.edtpass);
+        btnlogin = (Button) findViewById(R.id.btnlogin);
+        pbbar = (ProgressBar) findViewById(R.id.pbbar);
+        pbbar.setVisibility(View.GONE);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

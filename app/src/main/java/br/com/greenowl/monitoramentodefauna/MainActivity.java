@@ -33,17 +33,33 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        connectionClass = new ConnectionClass(); &nbsp;//the class file
-        edtuserid = (EditText) findViewById(R.id.edtuserid);
-        edtpass = (EditText) findViewById(R.id.edtpass);
-        btnlogin = (Button) findViewById(R.id.btnlogin);
-        pbbar = (ProgressBar) findViewById(R.id.pbbar);
-        pbbar.setVisibility(View.GONE);
-
-
+        //TODO MUDAR TOOLBAR AO ESCOLHER TIPO DE FAUNA, AINDA NÃO FUNCIONA
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+//-------- METODO DE CONEXÃO COM BANCO DE DADOS.
+        connectionClass = new ConnectionClass(); //&nbsp;//the class file &NBSP FOI SUPRIMIDO PORQUE AINDA NÃO SEI O QUE FAZ
+        edtuserid = (EditText) findViewById(R.id.email);
+        edtpass = (EditText) findViewById(R.id.password);
+        btnlogin = (Button) findViewById(R.id.email_sign_in_button);
+        //pbbar = (ProgressBar) findViewById(R.id.pbbar);
+        //pbbar.setVisibility(View.GONE);
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DoLogin doLogin = new DoLogin(); &nbsp;// this is the Asynctask
+                doLogin.execute("");
+
+            }
+        });
+
+
+
+
+
+//------ BOTOES
 
         ((ImageButton)findViewById(R.id.ibav)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +88,9 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(intent, 0);
             }
         });
+
+
+
 
             //------------ ao clicar na lista....
 

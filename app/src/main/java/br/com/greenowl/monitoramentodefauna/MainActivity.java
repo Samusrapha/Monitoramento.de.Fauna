@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import br.com.greenowl.monitoramentodefauna.Database.Database;
 import br.com.greenowl.monitoramentodefauna.Util.ConnectionClass;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,14 +47,6 @@ public class MainActivity extends AppCompatActivity
         //pbbar = (ProgressBar) findViewById(R.id.pbbar);
         //pbbar.setVisibility(View.GONE);
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DoLogin doLogin = new DoLogin(); &nbsp;// this is the Asynctask
-                doLogin.execute("");
-
-            }
-        });
 
 
 

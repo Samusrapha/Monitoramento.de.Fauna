@@ -73,11 +73,11 @@ public class Formulario extends AppCompatActivity {
 
         // TODO CRIAR METODO QUE MUDA TITULO
 
-        Intent tit = getIntent();
+       // Intent tit = getIntent();
         //String titulo = (titulo)tit.getDataString("titulo");
-        titulo = getIntent().getDataString();
+       //titulo = getIntent().getDataString();
 
-        getSupportActionBar().setTitle("avifauna");
+        //getSupportActionBar().setTitle("avifauna");
 
 
 
@@ -126,28 +126,36 @@ public class Formulario extends AppCompatActivity {
 
 
 
-        adpplato.add("0- Cipó");
-        adpplato.add("1- Monte Branco 1");
-        adpplato.add("2- Monte Branco 2");
-        adpplato.add("3- Papagaio");
-        adpplato.add("4- Periquito");
-        adpplato.add("5- Saracá");
+        adpplato.add("0- Saracá");
+        adpplato.add("1- Papagaio");
+        adpplato.add("2- Periquito");
+        adpplato.add("3- Aviso");
+        adpplato.add("4- Almeidas");
+        adpplato.add("6- Monte Branco");
+        adpplato.add("7- Cipó");
+        adpplato.add("8- Teófilo");
+        adpplato.add("9- Aramá");
+        adpplato.add("10-Greigh");
 
 
 
 
-        adpambiente.add("0-Ambiente A");
-        adpambiente.add("1-Ambiente B");
-        adpambiente.add("2-Ambiente C");
-        adpambiente.add("3-Ambiente D");
 
-        adpperiodo.add("0-DIURNO");
-        adpperiodo.add("1-NOTURNO");
+        adpambiente.add("0- Encosta");
+        adpambiente.add("1- Baixio");
+        adpambiente.add("2- Topo");
+
+        adpperiodo.add("0- Estação Seca");
+        adpperiodo.add("1- Estação Chuvosa");
 
 
 
-        adpmetodo.add("0-Avistamento");
-        adpmetodo.add("1-Camera");
+        adpmetodo.add("0- Avistamento");
+        adpmetodo.add("1- Busca Ativa");
+        adpmetodo.add("2- Sherman Tomahawk");
+        adpmetodo.add("3- Redes de neblina");
+        adpmetodo.add("4- Censo de Escuta");
+
 
         if(Database == null) {
             Database = new Database(this);

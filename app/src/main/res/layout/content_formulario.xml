@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Responsável"
+                android:text="Responsável : "
                 android:id="@+id/textView23"
                 android:layout_weight="1" />
 
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/editText" />
+                android:id="@+id/edtresponsavel" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Data"
+                android:text="Data : "
                 android:id="@+id/textView2"
                 android:layout_weight="1" />
 
@@ -70,9 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Condição Climática"
-                android:id="@+id/textView24"
-                android:layout_weight="1" />
+                android:text="Condição Climática : "
+                android:id="@+id/textView24" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -92,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Platô"
+                android:text="Platô : "
                 android:id="@+id/textView3" />
 
             <Spinner
@@ -113,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Ambiente"
+                android:text="Ambiente : "
                 android:id="@+id/textView11" />
 
             <Spinner
@@ -133,15 +132,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Transecto"
-                android:id="@+id/text"
-                android:layout_weight="1" />
+                android:text="Transecto : "
+                android:id="@+id/text" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/edtpar" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spntransecto"
+                android:spinnerMode="dropdown" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -154,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Período"
+                android:text="Período : "
                 android:id="@+id/textView20" />
 
             <Spinner
@@ -174,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Método"
+                android:text="Método : "
                 android:id="@+id/textView19" />
 
             <Spinner
@@ -221,7 +220,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Observação"
+                android:text="Observação : "
                 android:id="@+id/textView25"
                 android:layout_weight="1" />
 
@@ -229,7 +228,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/editText3" />
+                android:id="@+id/edtobs" />
         </LinearLayout>
 
     </LinearLayout>

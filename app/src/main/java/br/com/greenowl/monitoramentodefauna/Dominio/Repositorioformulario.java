@@ -38,7 +38,10 @@ public class Repositorioformulario  {
 
         ContentValues values = new ContentValues();
 
-        values.put(Registros.PARCELA, registros.getPARCELA());
+        values.put(Registros.TRANSECTO, registros.getTRANSECTO());
+        values.put(Registros.RESPONSAVEL, registros.getRESPONSAVEL());
+        values.put(Registros.OBSERVACAO, registros.getOBSERVACAO());
+        values.put(Registros.CONDICOESCLIMATICAS, registros.getCONDICOESCLIMATICAS());
         values.put(Registros.DATA, registros.getDATA().getTime());
         values.put(Registros.PLATO, registros.getPLATO());
         values.put(Registros.AMBIENTE, registros.getAMBIENTE());

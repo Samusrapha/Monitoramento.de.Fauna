@@ -101,7 +101,7 @@ public  class Parse {
         ArrayList<Registros> Aresultado =  new ArrayList<Registros>();
         for (int i= 0 ; i<contatos.getCount();i++){
             Registros C = new Registros();
-            C.setPARCELA(contatos.getItem(i).getPARCELA());
+
             C.setDATA(contatos.getItem(i).getDATA());
             C.setPLATO(contatos.getItem(i).getPLATO());
             C.setAMBIENTE(contatos.getItem(i).getAMBIENTE());
@@ -127,8 +127,8 @@ public  class Parse {
                 rootElement.appendChild(staff);
                 // set attribute to staff element
 
-                Attr attr = doc.createAttribute("parcela");
-                attr.setValue(contatos.get(i).getPARCELA());
+                Attr attr = doc.createAttribute("TRANSECTO");
+                attr.setValue(contatos.get(i).getTRANSECTO());
                 staff.setAttributeNode(attr);
                 attr = doc.createAttribute("PLATO");
                 attr.setValue(contatos.get(i).getPLATO());

@@ -42,20 +42,25 @@ import br.com.greenowl.monitoramentodefauna.Dominio.Repositorioformulario;
 import br.com.greenowl.monitoramentodefauna.Util.DateUtil;
 
 public class Formulario extends AppCompatActivity {
-    private EditText edtpar;
+
     private EditText edtdata;
+    private EditText edtresponsavel;
+    private EditText edtobs;
     private Spinner spnplato;
     private Spinner spnambiente;
     private Spinner spnperiodo;
     private Spinner spnmetodo;
     private Spinner spnespecie;
     private Spinner spncondicoesclimaticas;
+    private Spinner spntransecto;
+
     private ArrayAdapter<String> adpplato;
     private ArrayAdapter<String> adpambiente;
     private ArrayAdapter<String> adpperiodo;
     private ArrayAdapter<String> adpmetodo;
     private ArrayAdapter<String> adpespecie;
     private ArrayAdapter<String> adpcondicoesclimaticas;
+    private ArrayAdapter<String> adptransecto;
 
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     private SQLiteDatabase Conn;
@@ -111,14 +116,17 @@ public class Formulario extends AppCompatActivity {
 
 
 
-        edtpar = (EditText) findViewById(R.id.edtpar);
+
         edtdata = (EditText) findViewById(R.id.edtdata);
+        edtresponsavel=(EditText) findViewById(R.id.edtresponsavel);
+        edtobs=(EditText) findViewById(R.id.edtobs);
         spnplato = (Spinner) findViewById(R.id.spnplato);
         spnambiente = (Spinner) findViewById(R.id.spnambiente);
         spnperiodo = (Spinner) findViewById(R.id.spnperiodo);
         spnmetodo = (Spinner) findViewById(R.id.spnmetodo);
         spnespecie = (Spinner) findViewById(R.id.spnespecie);
         spncondicoesclimaticas=(Spinner) findViewById(R.id.spncondicoesclimaticas);
+        spntransecto=(Spinner) findViewById(R.id.spntransecto);
 
 
 
@@ -128,6 +136,7 @@ public class Formulario extends AppCompatActivity {
         adpmetodo = ViewHelper.createArrayAdapter(this, spnmetodo);
         adpespecie = ViewHelper.createArrayAdapter(this, spnespecie);
         adpcondicoesclimaticas= ViewHelper.createArrayAdapter(this,spncondicoesclimaticas);
+        adptransecto= ViewHelper.createArrayAdapter(this,spntransecto);
 
 
 
@@ -168,11 +177,10 @@ public class Formulario extends AppCompatActivity {
         adpcondicoesclimaticas.add("4-Céu Azul ");
         adpcondicoesclimaticas.add("5-Estiagem ");
 
-
-
-
-
-
+        adptransecto.add ("T1");
+        adptransecto.add ("T2");
+        adptransecto.add ("T3");
+        adptransecto.add ("T4");
 
 
         if(Database == null) {
@@ -277,7 +285,7 @@ public class Formulario extends AppCompatActivity {
     private void preencheDados()
     {
 
-        edtpar.setText(registros.getPARCELA());
+
         DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT);
         String dt = format.format(registros.getDATA());
         edtdata.setText(dt);
@@ -286,10 +294,6 @@ public class Formulario extends AppCompatActivity {
         spnperiodo.setSelection(( adpperiodo.getPosition(registros.getPERIODO())));
         spnmetodo.setSelection(( adpmetodo.getPosition(registros.getMETODO())));
         spnespecie.setSelection(( adpespecie.getPosition(registros.getESPECIE())));
-
-
-
-
     }
 
     private void excluir ()
@@ -309,14 +313,16 @@ public class Formulario extends AppCompatActivity {
     {
 
         try{
-            registros.setPARCELA(edtpar.getText().toString());
+            registros.setRESPONSAVEL(edtresponsavel.getText().toString());
             registros.setPLATO(String.valueOf(spnplato.getSelectedItem()));
             registros.setPERIODO(String.valueOf(spnperiodo.getSelectedItem()));
             registros.setAMBIENTE(String.valueOf(spnambiente.getSelectedItem()));
             registros.setPERIODO(String.valueOf(spnperiodo.getSelectedItem()));
             registros.setMETODO(String.valueOf(spnmetodo.getSelectedItem()));
             registros.setESPECIE(String.valueOf(spnespecie.getSelectedItem()));
-
+            registros.setCONDICOESCLIMATICAS(String.valueOf(spncondicoesclimaticas.getSelectedItem()));
+            registros.setTRANSECTO(String.valueOf(spntransecto.getSelectedItem()));
+            registros.setOBSERVACAO(edtobs.getText().toString());
 
 
             if  (registros.getId()==0)

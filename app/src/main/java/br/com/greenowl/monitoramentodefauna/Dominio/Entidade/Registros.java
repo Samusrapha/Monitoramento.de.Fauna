@@ -23,6 +23,10 @@ public class Registros  implements Serializable {
     public static String PERIODO = "PERIODO";
     public static String METODO = "METODO";
     public static String ESPECIE = "ESPECIE";
+    public static String RESPONSAVEL="RESPONSAVEL";
+    public static String CONDICOESCLIMATICAS="CONDICOESCLIMATICAS";
+    public static String TRANSECTO="TRANSECTO";
+    public static String OBSERVACAO="OBSERVACAO";
 
     private long id;
     private String parcela;
@@ -32,6 +36,10 @@ public class Registros  implements Serializable {
     private String periodo;
     private String metodo;
     private String especie;
+    private String responsavel;
+    private String condicoesclimaticas;
+    private String transecto;
+    private String observacao;
 
 
 
@@ -54,18 +62,13 @@ public class Registros  implements Serializable {
         this.id = id;
     }
 
-
-
-
-
-    public String getPARCELA() {
-        return parcela;
+    public String getTRANSECTO() {
+        return transecto;
     }
 
     public void setPARCELA(String parcela) {
         this.parcela = parcela;
     }
-
 
     public Date getDATA() {
         return data;
@@ -75,11 +78,25 @@ public class Registros  implements Serializable {
         this.data = data;
     }
 
-
     public String getPLATO() {
         return plato;
     }
 
+    public String getRESPONSAVEL() {
+        return responsavel;
+    }
+
+    public String getCONDICOESCLIMATICAS() {
+        return condicoesclimaticas;
+    }
+
+    public String getOBSERVACAO() {
+        return observacao;
+    }
+
+    public void getPLATO(String plato) {
+        this.plato = plato;
+    }
     public void setPLATO(String plato) {
         this.plato = plato;
     }
@@ -115,6 +132,19 @@ public class Registros  implements Serializable {
     public void setESPECIE(String especie) {
         this.especie = especie;
     }
+
+    public void getRESPONSAVEL(String responsavel){this.responsavel=responsavel;}
+    public void setRESPONSAVEL(String responsavel){this.responsavel=responsavel;}
+
+    public void getCONDICOESCLIMATICAS(String condicoesclimaticas){this.condicoesclimaticas=condicoesclimaticas;}
+    public void setCONDICOESCLIMATICAS(String condicoesclimaticas){this.condicoesclimaticas=condicoesclimaticas;}
+
+    public void getTRANSECTO(String transecto){this.transecto=transecto;}
+    public void setTRANSECTO(String transecto){this.transecto=transecto;}
+
+    public void getOBSERVACAO(String observacao){this.observacao=observacao;}
+    public void setOBSERVACAO(String observacao){this.observacao=observacao;}
+
 
 
 

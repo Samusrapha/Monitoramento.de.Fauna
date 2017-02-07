@@ -49,11 +49,13 @@ public class Formulario extends AppCompatActivity {
     private Spinner spnperiodo;
     private Spinner spnmetodo;
     private Spinner spnespecie;
+    private Spinner spncondicoesclimaticas;
     private ArrayAdapter<String> adpplato;
     private ArrayAdapter<String> adpambiente;
     private ArrayAdapter<String> adpperiodo;
     private ArrayAdapter<String> adpmetodo;
     private ArrayAdapter<String> adpespecie;
+    private ArrayAdapter<String> adpcondicoesclimaticas;
 
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     private SQLiteDatabase Conn;
@@ -116,6 +118,8 @@ public class Formulario extends AppCompatActivity {
         spnperiodo = (Spinner) findViewById(R.id.spnperiodo);
         spnmetodo = (Spinner) findViewById(R.id.spnmetodo);
         spnespecie = (Spinner) findViewById(R.id.spnespecie);
+        spncondicoesclimaticas=(Spinner) findViewById(R.id.spncondicoesclimaticas);
+
 
 
         adpplato = ViewHelper.createArrayAdapter(this, spnplato);
@@ -123,6 +127,7 @@ public class Formulario extends AppCompatActivity {
         adpperiodo = ViewHelper.createArrayAdapter(this, spnperiodo);
         adpmetodo = ViewHelper.createArrayAdapter(this, spnmetodo);
         adpespecie = ViewHelper.createArrayAdapter(this, spnespecie);
+        adpcondicoesclimaticas= ViewHelper.createArrayAdapter(this,spncondicoesclimaticas);
 
 
 
@@ -152,9 +157,22 @@ public class Formulario extends AppCompatActivity {
 
         adpmetodo.add("0- Avistamento");
         adpmetodo.add("1- Busca Ativa");
-        adpmetodo.add("2- Sherman Tomahawk");
-        adpmetodo.add("3- Redes de neblina");
-        adpmetodo.add("4- Censo de Escuta");
+        adpmetodo.add("2- Sherman");
+        adpmetodo.add("3-Tomahawk");
+        adpmetodo.add("4- Redes de neblina");
+        adpmetodo.add("5- Censo de Escuta");
+
+        adpcondicoesclimaticas.add("1-Nublado ");
+        adpcondicoesclimaticas.add("2-Chuva Intensa ");
+        adpcondicoesclimaticas.add("3-Chuva Moderada ");
+        adpcondicoesclimaticas.add("4-Céu Azul ");
+        adpcondicoesclimaticas.add("5-Estiagem ");
+
+
+
+
+
+
 
 
         if(Database == null) {

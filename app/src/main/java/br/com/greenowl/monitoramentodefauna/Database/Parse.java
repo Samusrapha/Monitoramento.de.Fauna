@@ -108,6 +108,16 @@ public  class Parse {
             C.setPERIODO(contatos.getItem(i).getPERIODO());
             C.setMETODO(contatos.getItem(i).getMETODO());
             C.setESPECIE(contatos.getItem(i).getESPECIE());
+            C.setCONDICOESCLIMATICAS(contatos.getItem(i).getCONDICOESCLIMATICAS());
+            C.setOBSERVACAO(contatos.getItem(i).getOBSERVACAO());
+            C.setTRANSECTO(contatos.getItem(i).getTRANSECTO());
+            C.setRESPONSAVEL(contatos.getItem(i).getRESPONSAVEL());
+
+
+
+
+
+
 
             Aresultado.add(C);
         }
@@ -126,13 +136,26 @@ public  class Parse {
                 Element staff = doc.createElement("record");
                 rootElement.appendChild(staff);
                 // set attribute to staff element
+                Attr attr = doc.createAttribute("RESPONSAVEL");
+                attr.setValue(contatos.get(i).getRESPONSAVEL());
+                staff.setAttributeNode(attr);
 
-                Attr attr = doc.createAttribute("TRANSECTO");
+                attr  = doc.createAttribute("OBSERVACAO");
+                attr.setValue(contatos.get(i).getOBSERVACAO());
+                staff.setAttributeNode(attr);
+
+                attr  = doc.createAttribute("CONDICOESCLIMATICAS");
+                attr.setValue(contatos.get(i).getCONDICOESCLIMATICAS());
+                staff.setAttributeNode(attr);
+
+                attr  = doc.createAttribute("TRANSECTO");
                 attr.setValue(contatos.get(i).getTRANSECTO());
                 staff.setAttributeNode(attr);
+
                 attr = doc.createAttribute("PLATO");
                 attr.setValue(contatos.get(i).getPLATO());
                 staff.setAttributeNode(attr);
+
                 attr = doc.createAttribute("AMBIENTE");
                 attr.setValue(contatos.get(i).getAMBIENTE());
                 staff.setAttributeNode(attr);
@@ -156,7 +179,7 @@ public  class Parse {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(Environment.getExternalStorageDirectory()+"/talhoesexp.xml"));
+            StreamResult result = new StreamResult(new File(Environment.getExternalStorageDirectory()+"/formulario.xml"));
             // Output to console for testing
             // StreamResult result = new StreamResult(System.out);
             transformer.transform(source, result);

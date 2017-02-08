@@ -1,6 +1,7 @@
 package br.com.greenowl.monitoramentodefauna;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -12,22 +13,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import br.com.greenowl.monitoramentodefauna.Database.Database;
+import br.com.greenowl.monitoramentodefauna.Database.Parse;
+import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.Registros;
+import br.com.greenowl.monitoramentodefauna.Dominio.Repositorioformulario;
 import br.com.greenowl.monitoramentodefauna.Util.ConnectionClass;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     ConnectionClass connectionClass;
     EditText edtuserid,edtpass;
     Button btnlogin;
     ProgressBar pbbar;
+    private SQLiteDatabase Conn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,6 +168,15 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
+
+            Database = new Database(this);
+            Conn = Database.getWritableDatabase();
+            Repositorioformulario dbxml = new Repositorioformulario(Conn);
+            ArrayAdapter<Registros> registro = dbxml.buscaregistros(this);
+            Parse exportar = new Parse();
+            ArrayList<Registros> Lregistro = exportar.AdaptertoList(registro);
+            exportar.Exportarxml(Lregistro);
+            Toast.makeText(this, "Exportado com sucess XD", Toast.LENGTH_SHORT);
 
         } else if (id == R.id.nav_slideshow) {
 

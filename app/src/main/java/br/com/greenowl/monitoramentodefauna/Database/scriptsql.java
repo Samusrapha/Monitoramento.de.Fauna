@@ -13,7 +13,10 @@ public class scriptsql {
         sqlbuilder.append ("CREATE TABLE IF NOT EXISTS FORMULARIO ( ");
         sqlbuilder.append ("_id                INTEGER       NOT NULL ");
         sqlbuilder.append ("PRIMARY KEY AUTOINCREMENT, ");
-        sqlbuilder.append ("PARCELA           VARCHAR (14), ");
+        sqlbuilder.append ("TRANSECTO           VARCHAR (14), ");
+        sqlbuilder.append ("RESPONSAVEL           VARCHAR (14), ");
+        sqlbuilder.append ("CONDICOESCLIMATICAS           VARCHAR (14), ");
+        sqlbuilder.append ("OBSERVACAO           VARCHAR (100), ");
         sqlbuilder.append ("DATA           DATE, ");
         sqlbuilder.append ("PLATO       VARCHAR (100), ");
         sqlbuilder.append ("AMBIENTE       VARCHAR (100), ");

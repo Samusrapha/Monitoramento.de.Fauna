@@ -108,13 +108,16 @@ public class Repositorioformulario  {
 
             Registros registros = new Registros();
                 registros.setId(cursor.getLong(cursor.getColumnIndex(Registros.ID)));
-                registros.setPARCELA(cursor.getString(cursor.getColumnIndex(Registros.PARCELA)));
                 registros.setPLATO(cursor.getString(cursor.getColumnIndex(Registros.PLATO)));
                 registros.setAMBIENTE(cursor.getString(cursor.getColumnIndex(Registros.AMBIENTE)));
                 registros.setPERIODO(cursor.getString(cursor.getColumnIndex(Registros.PERIODO)));
                 registros.setMETODO(cursor.getString(cursor.getColumnIndex(Registros.METODO)));
                 registros.setESPECIE(cursor.getString(cursor.getColumnIndex(Registros.ESPECIE)));
                 registros.setDATA(new Date(cursor.getLong(cursor.getColumnIndex(Registros.DATA))));
+                registros.setRESPONSAVEL(cursor.getString(cursor.getColumnIndex(Registros.RESPONSAVEL)));
+                registros.setTRANSECTO(cursor.getString(cursor.getColumnIndex(Registros.TRANSECTO)));
+                registros.setOBSERVACAO(cursor.getString(cursor.getColumnIndex(Registros.OBSERVACAO)));
+                registros.setCONDICOESCLIMATICAS(cursor.getString(cursor.getColumnIndex(Registros.CONDICOESCLIMATICAS)));
 
 
 

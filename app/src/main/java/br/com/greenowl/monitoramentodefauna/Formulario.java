@@ -289,11 +289,19 @@ public class Formulario extends AppCompatActivity {
         DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT);
         String dt = format.format(registros.getDATA());
         edtdata.setText(dt);
-        spnplato.setSelection(( adpplato.getPosition(registros.getPLATO())));
+        spnplato.setSelection((adpplato.getPosition(registros.getPLATO())));
         spnambiente.setSelection(( adpambiente.getPosition(registros.getAMBIENTE())));
         spnperiodo.setSelection(( adpperiodo.getPosition(registros.getPERIODO())));
         spnmetodo.setSelection(( adpmetodo.getPosition(registros.getMETODO())));
         spnespecie.setSelection(( adpespecie.getPosition(registros.getESPECIE())));
+        spntransecto.setSelection((adptransecto.getPosition(registros.getTRANSECTO())));
+        edtresponsavel.setText(registros.getRESPONSAVEL());
+        edtobs.setText(registros.getOBSERVACAO());
+        spncondicoesclimaticas.setSelection((adpcondicoesclimaticas.getPosition(registros.getCONDICOESCLIMATICAS())));
+
+
+
+
     }
 
     private void excluir ()

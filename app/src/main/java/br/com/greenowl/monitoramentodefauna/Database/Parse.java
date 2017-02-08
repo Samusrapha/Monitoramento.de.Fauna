@@ -64,7 +64,7 @@ public  class Parse {
                 //Search for record tags
                 if ((eventType == XmlPullParser.START_TAG) && (_xml.getName().equals("record"))) {
                     //Record tag found, now get values and insert record
-                    String _parcela = _xml.getAttributeValue(null, Registros.PARCELA);
+                    //String _parcela = _xml.getAttributeValue(null, Registros.PARCELA);
                     Date _data= DateUtil.getDate(2016,01,01);
                     String _plato = _xml.getAttributeValue(null, Registros.PLATO);
                     String _ambiente = _xml.getAttributeValue(null, Registros.AMBIENTE);
@@ -74,7 +74,7 @@ public  class Parse {
                     Registros registro = new Registros();
 
 
-                    registro.setPARCELA(_parcela);
+                   // registro.setPARCELA(_parcela);
                     registro.setDATA(_data);
                     registro.setPLATO(_plato);
                     registro.setAMBIENTE(_ambiente);

@@ -16,7 +16,6 @@ public class Registros  implements Serializable {
 
     public static String TABELA = "FORMULARIO";
     public static String ID = "_id";
-    public static String PARCELA = "PARCELA";
     public static String DATA = "DATA";
     public static String PLATO = "PLATO";
     public static String AMBIENTE = "AMBIENTE";
@@ -29,7 +28,6 @@ public class Registros  implements Serializable {
     public static String OBSERVACAO="OBSERVACAO";
 
     private long id;
-    private String parcela;
     private Date data;
     private String plato;
     private String ambiente;
@@ -66,9 +64,6 @@ public class Registros  implements Serializable {
         return transecto;
     }
 
-    public void setPARCELA(String parcela) {
-        this.parcela = parcela;
-    }
 
     public Date getDATA() {
         return data;
@@ -120,7 +115,6 @@ public class Registros  implements Serializable {
     public String getMETODO() {
         return metodo;
     }
-
     public void setMETODO(String metodo) {
         this.metodo = metodo;
     }
@@ -128,7 +122,6 @@ public class Registros  implements Serializable {
     public String getESPECIE() {
         return especie;
     }
-
     public void setESPECIE(String especie) {
         this.especie = especie;
     }

@@ -1,6 +1,7 @@
 package br.com.greenowl.monitoramentodefauna;
 
 import android.content.Intent;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,14 +18,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import br.com.greenowl.monitoramentodefauna.App.MessageBox;
 import br.com.greenowl.monitoramentodefauna.Database.Database;
 import br.com.greenowl.monitoramentodefauna.Database.Parse;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.Registros;
+import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.RegistrosSpp;
+import br.com.greenowl.monitoramentodefauna.Dominio.RepositorioEspecie;
 import br.com.greenowl.monitoramentodefauna.Dominio.Repositorioformulario;
 import br.com.greenowl.monitoramentodefauna.Util.ConnectionClass;
 
@@ -33,10 +38,13 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     ConnectionClass connectionClass;
+    private RepositorioEspecie repositorioEspecie;
     EditText edtuserid,edtpass;
     Button btnlogin;
     ProgressBar pbbar;
     private SQLiteDatabase Conn;
+    private ArrayAdapter<RegistrosSpp> adpespecies;
+    private ListView lstespecies;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,11 +171,26 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camara) {
-            Intent intent = new Intent(this, Especies.class);
-            startActivityForResult(intent, 0);
+            Parse importar = new Parse();
+            ArrayList<RegistrosSpp> especies = importar.Importardados(this.getApplicationContext());
+            Database = new Database(this);
+            Conn = Database.getWritableDatabase();
+            RepositorioEspecie dbxml = new RepositorioEspecie(Conn);
+            for (int i = 0; i < especies.size(); i++) {
+                dbxml.inserirspp(especies.get(i));
+            }
+            /*try {
+                Database = new Database(this);
+                Conn = Database.getWritableDatabase();
+                repositorioEspecie = new RepositorioEspecie(Conn);
+                adpespecies = repositorioEspecie.buscaregistros(this);
+                lstespecies.setAdapter(adpespecies);
+            } catch (SQLException ex) {
+                MessageBox.show(this, "Erro", "Erro ao criar o banco " + ex.getMessage());
+            }*/
+        }
 
-
-        } else if (id == R.id.nav_gallery) {
+            else if (id == R.id.nav_gallery) {
 
             Database = new Database(this);
             Conn = Database.getWritableDatabase();

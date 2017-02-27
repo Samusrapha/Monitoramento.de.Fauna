@@ -22,7 +22,8 @@ public class scriptsql {
         sqlbuilder.append ("AMBIENTE       VARCHAR (100), ");
         sqlbuilder.append ("PERIODO       VARCHAR (100), ");
         sqlbuilder.append ("METODO       VARCHAR (100), ");
-        sqlbuilder.append ("ESPECIE       VARCHAR (1) ");
+        sqlbuilder.append ("ESPECIE       VARCHAR (100), ");
+        sqlbuilder.append ("TIPO       VARCHAR (100) ");
         sqlbuilder.append (");");
 
 
@@ -40,7 +41,8 @@ public class scriptsql {
         sqlbuilder.append ("GENERO       VARCHAR (100), ");
         sqlbuilder.append ("FAMILIA       VARCHAR (100), ");
         sqlbuilder.append ("ORDEM       VARCHAR (100), ");
-        sqlbuilder.append ("CLASSE       VARCHAR (100)");
+        sqlbuilder.append ("CLASSE       VARCHAR (100), ");
+        sqlbuilder.append ("GRUPO       VARCHAR (100)");
         sqlbuilder.append (");");
 
 

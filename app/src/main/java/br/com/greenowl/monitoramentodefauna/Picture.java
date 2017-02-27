@@ -21,13 +21,13 @@ public class Picture extends Activity {
 
     int TAKE_PHOTO_CODE = 0;
     public static int count = 0;
-
     /** Called when the activity is first created. */
     @Override
         public void onCreate(Bundle savedInstanceState)
         {
         super.onCreate(savedInstanceState);
       // setContentView(R.layout.main);
+
 
         // Here, we are making a folder named picFolder to store
         // pics taken by the camera using this application.

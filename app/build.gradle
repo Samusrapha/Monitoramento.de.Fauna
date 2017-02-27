@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
     compile files('libs/jtds-1.2.7-sources.jar')
+    compile files('libs/J-Excel-1.0-SNAPSHOT.jar')
 }

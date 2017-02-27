@@ -11,24 +11,23 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:id="@+id/linearLayout"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="80dp">
+        android:layout_alignParentTop="true">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="fill_parent"
+            android:weightSum="1">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="165dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:layout_width="100dp"
@@ -42,12 +41,13 @@
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="AVALIAÇÃO"
                     android:id="@+id/textView16"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -67,44 +67,45 @@
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="RECUPERAÇÃO"
                     android:id="@+id/textView17"
-                    android:layout_gravity="center_horizontal" />
+                    android:textAlignment="center" />
 
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="94dp"></LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/ibdados"
-                android:src="@drawable/dados"
-                android:scaleType="fitXY"
-                android:layout_below="@+id/btav2"
-                android:layout_alignLeft="@+id/btdados"
-                android:layout_alignStart="@+id/btdados"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="DADOS"
-                android:id="@+id/textView18"
-                android:layout_gravity="center_horizontal" />
+                android:layout_weight="0.39"></FrameLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/ibdados"
+                    android:src="@drawable/dados"
+                    android:scaleType="fitXY"
+                    android:layout_below="@+id/btav2"
+                    android:layout_alignLeft="@+id/btdados"
+                    android:layout_alignStart="@+id/btdados"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="DADOS COLETADOS"
+                    android:id="@+id/textView18"
+                    android:layout_gravity="center_horizontal"
+                    android:singleLine="true" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

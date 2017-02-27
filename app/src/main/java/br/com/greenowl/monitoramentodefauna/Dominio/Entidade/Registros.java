@@ -26,6 +26,7 @@ public class Registros  implements Serializable {
     public static String CONDICOESCLIMATICAS="CONDICOESCLIMATICAS";
     public static String TRANSECTO="TRANSECTO";
     public static String OBSERVACAO="OBSERVACAO";
+    public static String TIPO="TIPO";
 
     private long id;
     private Date data;
@@ -38,6 +39,7 @@ public class Registros  implements Serializable {
     private String condicoesclimaticas;
     private String transecto;
     private String observacao;
+    private String tipo;
 
 
 
@@ -126,7 +128,11 @@ public class Registros  implements Serializable {
         this.especie = especie;
     }
 
-    public void getRESPONSAVEL(String responsavel){this.responsavel=responsavel;}
+
+
+
+
+    public String getRESPONSAVEL(String responsavel){return responsavel;}
     public void setRESPONSAVEL(String responsavel){this.responsavel=responsavel;}
 
     public void getCONDICOESCLIMATICAS(String condicoesclimaticas){this.condicoesclimaticas=condicoesclimaticas;}
@@ -137,6 +143,8 @@ public class Registros  implements Serializable {
 
     public void getOBSERVACAO(String observacao){this.observacao=observacao;}
     public void setOBSERVACAO(String observacao){this.observacao=observacao;}
+    public String getTIPO() {return tipo;}
+    public void setTIPO(String tipo){this.tipo=tipo;}
 
 
 

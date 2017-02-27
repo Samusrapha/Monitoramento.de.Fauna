@@ -48,6 +48,7 @@ public class Repositorioformulario  {
         values.put(Registros.PERIODO, registros.getPERIODO());
         values.put(Registros.METODO, registros.getMETODO());
         values.put(Registros.ESPECIE, registros.getESPECIE());
+        values.put(Registros.TIPO, registros.getTIPO());
 
 
         return values;
@@ -118,6 +119,7 @@ public class Repositorioformulario  {
                 registros.setTRANSECTO(cursor.getString(cursor.getColumnIndex(Registros.TRANSECTO)));
                 registros.setOBSERVACAO(cursor.getString(cursor.getColumnIndex(Registros.OBSERVACAO)));
                 registros.setCONDICOESCLIMATICAS(cursor.getString(cursor.getColumnIndex(Registros.CONDICOESCLIMATICAS)));
+                registros.setTIPO(cursor.getString(cursor.getColumnIndex(Registros.TIPO)));
 
 
 
@@ -130,10 +132,11 @@ public class Repositorioformulario  {
     }
 
 
-    public List<String> getAllLabels(){
+    public List<String> getAllLabels(String x){
         List<String> labels = new ArrayList<String>();
         // Select All Query
-        String selectQuery = "SELECT * FROM ESPECIE" ;
+        String selectQuery = "SELECT * FROM ESPECIE WHERE GRUPO ='"+x+"'";
+
 
         Cursor cursor = conn.rawQuery(selectQuery, null);
 

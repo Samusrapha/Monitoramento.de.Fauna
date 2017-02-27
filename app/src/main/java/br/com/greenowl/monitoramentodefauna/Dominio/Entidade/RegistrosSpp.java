@@ -22,6 +22,7 @@ public class RegistrosSpp implements Serializable {
     public static String FAMILIA = "FAMILIA";
     public static String ORDEM = "ORDEM";
     public static String CLASSE = "CLASSE";
+    public static String GRUPO = "GRUPO";
 
 
 
@@ -34,6 +35,7 @@ public class RegistrosSpp implements Serializable {
     private String familia;
     private String ordem;
     private String classe;
+    private String grupo;
 
 
 
@@ -105,6 +107,14 @@ public class RegistrosSpp implements Serializable {
 
     public void setCLASSE(String classe) {
         this.classe = classe;
+    }
+
+    public String getGRUPO() {
+        return grupo;
+    }
+
+    public void setGRUPO(String grupo) {
+        this.grupo = grupo;
     }
 
     @Override

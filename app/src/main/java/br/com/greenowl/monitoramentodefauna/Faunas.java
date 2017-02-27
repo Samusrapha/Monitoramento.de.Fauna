@@ -14,27 +14,32 @@ import android.widget.Toolbar;
 import java.text.Normalizer;
 
 public class Faunas extends AppCompatActivity {
-   private String titulo;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faunas);
 
+        String titulo= getIntent().getStringExtra("TIPO");
+
+        setTitle(titulo);
 
 
         ((ImageButton)findViewById(R.id.ibave)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
                 Intent intent = new Intent(v.getContext(), Formulario.class);
                 Intent tit = new Intent (v.getContext(),Formulario.class);
+              //  intent.putExtra("TIPO",s);
+                intent.putExtra("TITULO","AVIFAUNA");
+                intent.putExtra("GRUPO","AVIF");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
 
-                titulo = "Avifauna";
-                tit.putExtra("titulo",titulo);
+
                 startActivityForResult(intent, 0);
 
 
@@ -46,6 +51,9 @@ public class Faunas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Formulario.class);
+                intent.putExtra("TITULO","ENTOMOFAUNA");
+                intent.putExtra("GRUPO","ENTO");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
                 startActivityForResult(intent, 0);
 
             }
@@ -55,6 +63,9 @@ public class Faunas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Formulario.class);
+                intent.putExtra("TITULO","HERPETOFAUNA");
+                intent.putExtra("GRUPO","HERP");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
                 startActivityForResult(intent, 0);
 
             }
@@ -63,6 +74,9 @@ public class Faunas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Formulario.class);
+                intent.putExtra("TITULO","QUIRÓPTEROS");
+                intent.putExtra("GRUPO","QUIR");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
                 startActivityForResult(intent, 0);
 
             }
@@ -71,6 +85,9 @@ public class Faunas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Formulario.class);
+                intent.putExtra("TITULO","P. MAMÍFEROS");
+                intent.putExtra("GRUPO","PMAM");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
                 startActivityForResult(intent, 0);
 
             }
@@ -79,6 +96,9 @@ public class Faunas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Formulario.class);
+                intent.putExtra("TITULO","M. & G. MAMÍFEROS");
+                intent.putExtra("GRUPO","MGMA");
+                intent.putExtra("TIPO", getIntent().getStringExtra("TIPO"));
                 startActivityForResult(intent, 0);
 
             }

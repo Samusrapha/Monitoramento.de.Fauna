@@ -15,10 +15,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 
 import br.com.greenowl.monitoramentodefauna.App.MessageBox;
+import br.com.greenowl.monitoramentodefauna.App.ViewHelper;
 import br.com.greenowl.monitoramentodefauna.Database.Database;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.RegistrosSpp;
 import br.com.greenowl.monitoramentodefauna.Dominio.RepositorioEspecie;
@@ -33,6 +36,10 @@ public class CadastroEspecie extends AppCompatActivity {
     private EditText edtfamilia;
     private EditText edtordem;
     private EditText edtclasse;
+    private EditText edtgrupo;
+    private Spinner spngrupo;
+    private ArrayAdapter<String> adpgrupo;
+
 
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     private SQLiteDatabase Conn;
@@ -52,7 +59,7 @@ public class CadastroEspecie extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_especie);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        String sgrupo = getIntent().getStringExtra("GRUPO");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +78,19 @@ public class CadastroEspecie extends AppCompatActivity {
         edtfamilia = (EditText) findViewById(R.id.edtfamilia);
         edtordem = (EditText) findViewById(R.id.edtordem);
         edtclasse = (EditText) findViewById(R.id.edtclasse);
+        spngrupo=(Spinner) findViewById(R.id.spngrupo);
+        adpgrupo= ViewHelper.createArrayAdapter(this, spngrupo);
+
+        adpgrupo.add ("AVIF");
+        adpgrupo.add ("ENTO");
+        adpgrupo.add ("HERP");
+        adpgrupo.add ("QUIR");
+        adpgrupo.add ("PMAM");
+        adpgrupo.add ("MGMA");
 
 
 
-
-
-
+        spngrupo.setSelection((adpgrupo.getPosition(getIntent().getStringExtra("GRUPO"))));
 
 
         Bundle bundle= getIntent().getExtras();
@@ -162,6 +176,7 @@ public class CadastroEspecie extends AppCompatActivity {
         edtfamilia.setText(registros.getFAMILIA());
         edtordem.setText(registros.getORDEM());
         edtclasse.setText(registros.getCLASSE());
+        spngrupo.setSelection((adpgrupo.getPosition(registros.getGRUPO())));
 
 
 
@@ -196,6 +211,7 @@ public class CadastroEspecie extends AppCompatActivity {
             registros.setFAMILIA(edtfamilia.getText().toString());
             registros.setORDEM(edtordem.getText().toString());
             registros.setCLASSE(edtclasse.getText().toString());
+            registros.setGRUPO(String.valueOf(spngrupo.getSelectedItem()));
 
 
 

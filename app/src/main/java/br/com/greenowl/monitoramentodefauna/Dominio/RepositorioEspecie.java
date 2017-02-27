@@ -38,6 +38,8 @@ public class RepositorioEspecie {
         values.put(RegistrosSpp.FAMILIA, registros.getFAMILIA());
         values.put(RegistrosSpp.ORDEM, registros.getORDEM());
         values.put(RegistrosSpp.CLASSE, registros.getCLASSE());
+        values.put(RegistrosSpp.GRUPO, registros.getGRUPO());
+
 
 
 
@@ -97,6 +99,8 @@ public class RepositorioEspecie {
                 registros.setFAMILIA(cursor.getString(cursor.getColumnIndex(RegistrosSpp.FAMILIA)));
                 registros.setORDEM(cursor.getString(cursor.getColumnIndex(RegistrosSpp.ORDEM)));
                 registros.setCLASSE(cursor.getString(cursor.getColumnIndex(RegistrosSpp.CLASSE)));
+                registros.setGRUPO(cursor.getString(cursor.getColumnIndex(RegistrosSpp.GRUPO)));
+
 
 
 

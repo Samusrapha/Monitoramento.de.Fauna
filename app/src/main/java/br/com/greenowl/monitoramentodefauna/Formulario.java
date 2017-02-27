@@ -66,7 +66,7 @@ public class Formulario extends AppCompatActivity {
     private SQLiteDatabase Conn;
     private Repositorioformulario repositorioformulario;
     private Registros registros;
-    private String titulo;
+
 
 
 
@@ -76,15 +76,14 @@ public class Formulario extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarf);
         setSupportActionBar(toolbar);
+        final String s = getIntent().getStringExtra("TIPO");
+        String titulo= getIntent().getStringExtra("TITULO");
+
+        setTitle(titulo);
 
 
-        // TODO CRIAR METODO QUE MUDA TITULO
 
-       // Intent tit = getIntent();
-        //String titulo = (titulo)tit.getDataString("titulo");
-       //titulo = getIntent().getDataString();
 
-        //getSupportActionBar().setTitle("avifauna");
 
 
 
@@ -94,6 +93,7 @@ public class Formulario extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CadastroEspecie.class);
                 startActivityForResult(intent, 0);
+
             }
         });
 
@@ -188,7 +188,7 @@ public class Formulario extends AppCompatActivity {
         }
         Conn = Database.getWritableDatabase();
         repositorioformulario = new Repositorioformulario(Conn);
-        List<String> lables =repositorioformulario.getAllLabels();
+        List<String> lables =repositorioformulario.getAllLabels(getIntent().getStringExtra("GRUPO"));
         // Creating adapter for spinner
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -199,6 +199,16 @@ public class Formulario extends AppCompatActivity {
         adpespecie= dataAdapter;
         spnespecie.setAdapter(adpespecie);
 
+
+        ((Button) findViewById(R.id.btnnovo)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CadastroEspecie.class);
+                intent.putExtra("GRUPO", getIntent().getStringExtra("GRUPO"));
+                startActivityForResult(intent, 0);
+
+            }
+        });
 
 
 
@@ -331,6 +341,7 @@ public class Formulario extends AppCompatActivity {
             registros.setCONDICOESCLIMATICAS(String.valueOf(spncondicoesclimaticas.getSelectedItem()));
             registros.setTRANSECTO(String.valueOf(spntransecto.getSelectedItem()));
             registros.setOBSERVACAO(edtobs.getText().toString());
+            registros.setTIPO(getIntent().getStringExtra("TIPO"));
 
 
             if  (registros.getId()==0)
@@ -406,26 +417,28 @@ public class Formulario extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             Log.d(this.getClass().getName(), "back button pressed");
+            if ((edtresponsavel.getText().toString() =="")) {
 
 
-            new AlertDialog.Builder(this)
-                    .setTitle("SALVAR?")
-                    .setMessage("Salvar apontamentos?")
-                    .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // continue with delete
-                            salvar();
+                new AlertDialog.Builder(this)
+                        .setTitle("SALVAR?")
+                        .setMessage("Salvar apontamentos?")
+                        .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                                salvar();
 
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
         }
         return super.onKeyDown(keyCode, event);
 

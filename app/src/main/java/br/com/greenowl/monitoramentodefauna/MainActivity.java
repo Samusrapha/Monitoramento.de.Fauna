@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     private SQLiteDatabase Conn;
     private ArrayAdapter<RegistrosSpp> adpespecies;
     private ListView lstespecies;
+    public int TIPO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity
 
 
                 Intent intent = new Intent(v.getContext(), Faunas.class);
+                intent.putExtra("TIPO","AVALIAÇÃO");
+
                 startActivityForResult(intent, 0);
 
             }
@@ -87,6 +90,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Faunas.class);
+                intent.putExtra("TIPO","RECUPERAÇÃO");
+
                 startActivityForResult(intent, 0);
 
             }
@@ -179,15 +184,7 @@ public class MainActivity extends AppCompatActivity
             for (int i = 0; i < especies.size(); i++) {
                 dbxml.inserirspp(especies.get(i));
             }
-            /*try {
-                Database = new Database(this);
-                Conn = Database.getWritableDatabase();
-                repositorioEspecie = new RepositorioEspecie(Conn);
-                adpespecies = repositorioEspecie.buscaregistros(this);
-                lstespecies.setAdapter(adpespecies);
-            } catch (SQLException ex) {
-                MessageBox.show(this, "Erro", "Erro ao criar o banco " + ex.getMessage());
-            }*/
+            Toast.makeText(this, "Especies importadas com sucesso", Toast.LENGTH_SHORT);
         }
 
             else if (id == R.id.nav_gallery) {

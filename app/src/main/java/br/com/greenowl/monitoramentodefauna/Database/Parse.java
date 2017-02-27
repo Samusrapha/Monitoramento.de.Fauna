@@ -65,31 +65,22 @@ public  class Parse {
                 //Search for record tags
                 if ((eventType == XmlPullParser.START_TAG) && (_xml.getName().equals("record"))) {
                     //Record tag found, now get values and insert record
-                    //String _parcela = _xml.getAttributeValue(null, Registros.PARCELA);
-                    // Date _data= DateUtil.getDate(2016,01,01);
-                    //String _plato = _xml.getAttributeValue(null, Registros.PLATO);
-                    //String _ambiente = _xml.getAttributeValue(null, Registros.AMBIENTE);
-                    // String _periodo = _xml.getAttributeValue(null, Registros.PERIODO);
-                    // String _metodo = _xml.getAttributeValue(null, Registros.METODO);
-                    // String _especie = _xml.getAttributeValue(null, Registros.ESPECIE);
                     String _especie = _xml.getAttributeValue(null, RegistrosSpp.SPP);
                     String _nomecientifico = _xml.getAttributeValue(null, RegistrosSpp.NOMECIENTIFICO);
-
                     String _genero = _xml.getAttributeValue(null, RegistrosSpp.GENERO);
                     String _familia = _xml.getAttributeValue(null, RegistrosSpp.FAMILIA);
                     String _ordem= _xml.getAttributeValue(null, RegistrosSpp.ORDEM);
                     String _classe= _xml.getAttributeValue(null, RegistrosSpp.CLASSE);
-
-
+                    String _grupo= _xml.getAttributeValue(null, RegistrosSpp.GRUPO);
 
                     RegistrosSpp registrospp = new RegistrosSpp();
-
                     registrospp.setSPP(_especie);
                     registrospp.setNOMEC(_nomecientifico);
                     registrospp.setGENERO(_genero);
                     registrospp.setFAMILIA(_familia);
                     registrospp.setORDEM(_ordem);
                     registrospp.setCLASSE(_classe);
+                    registrospp.setGRUPO(_grupo);
 
 
                     Lista.add(registrospp);
@@ -107,6 +98,9 @@ public  class Parse {
             //Close the xml file
         }
     }
+
+
+
     public ArrayList<Registros> AdaptertoList (ArrayAdapter<Registros> contatos){
         ArrayList<Registros> Aresultado =  new ArrayList<Registros>();
         for (int i= 0 ; i<contatos.getCount();i++){
@@ -122,6 +116,9 @@ public  class Parse {
             C.setOBSERVACAO(contatos.getItem(i).getOBSERVACAO());
             C.setTRANSECTO(contatos.getItem(i).getTRANSECTO());
             C.setRESPONSAVEL(contatos.getItem(i).getRESPONSAVEL());
+            C.setTIPO(contatos.getItem(i).getTIPO());
+
+
 
 
 
@@ -180,6 +177,9 @@ public  class Parse {
                 staff.setAttributeNode(attr);
                 attr = doc.createAttribute("ESPECIE");
                 attr.setValue(contatos.get(i).getESPECIE());
+                staff.setAttributeNode(attr);
+                attr = doc.createAttribute("TIPO");
+                attr.setValue(contatos.get(i).getTIPO());
                 staff.setAttributeNode(attr);
 
             }

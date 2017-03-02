@@ -130,6 +130,8 @@ public  class Parse {
         }
         return Aresultado;
     }
+
+
     public void Exportarxml(ArrayList<Registros> contatos) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

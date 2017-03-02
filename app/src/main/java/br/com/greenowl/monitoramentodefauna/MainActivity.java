@@ -27,6 +27,7 @@ import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.Registros;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.RegistrosSpp;
 import br.com.greenowl.monitoramentodefauna.Dominio.RepositorioEspecie;
 import br.com.greenowl.monitoramentodefauna.Dominio.Repositorioformulario;
+import br.com.greenowl.monitoramentodefauna.Retrofit.QuestionsActivity;
 import br.com.greenowl.monitoramentodefauna.Util.ConnectionClass;
 
 
@@ -194,7 +195,18 @@ public class MainActivity extends AppCompatActivity
             exportar.Exportarxml(Lregistro);
             Toast.makeText(this, "Exportado com sucess XD", Toast.LENGTH_SHORT);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.exportcloud) {
+            Database = new Database(this);
+            Conn = Database.getWritableDatabase();
+            Repositorioformulario dbxml = new Repositorioformulario(Conn);
+            ArrayAdapter<Registros> registro = dbxml.buscaregistros(this);
+            Parse exportar = new Parse();
+            QuestionsActivity cloud= new QuestionsActivity();
+            ArrayList<Registros> Lregistro = exportar.AdaptertoList(registro);
+            cloud.Exportaplanilha(Lregistro);
+            Toast.makeText(this, "Exportado com sucess XD", Toast.LENGTH_SHORT);
+
+
 
         } else if (id == R.id.nav_manage) {
 

@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.3.0'
     compile files('libs/jtds-1.2.7-sources.jar')
     compile files('libs/J-Excel-1.0-SNAPSHOT.jar')
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
 }

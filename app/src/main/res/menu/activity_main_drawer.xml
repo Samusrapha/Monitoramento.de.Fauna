@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/importar" android:icon="@android:drawable/ic_menu_upload"
+        <item android:id="@+id/importar" android:icon="@android:drawable/ic_menu_more"
             android:title="IMPORTAR ESPECIES" />
         <item android:id="@+id/exportar" android:icon="@android:drawable/ic_menu_set_as"
             android:title="EXPORTAR DADOS XML" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_share"
-            android:title="Slideshow"
-            android:visible="false"/>
+        <item android:id="@+id/exportcloud" android:icon="@android:drawable/ic_menu_upload"
+            android:title="EXPORTAR PARA NUVEM"
+            android:visible="true"/>
         <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
             android:title="Tools"
             android:visible="false"/>

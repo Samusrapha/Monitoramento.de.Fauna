@@ -125,6 +125,14 @@ public class Formulario extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new btnTakePhotoClicker()) ;
 
+        FloatingActionButton sav = (FloatingActionButton) findViewById(R.id.sav);
+
+        sav.setOnClickListener(new View.OnClickListener(){
+            @Override public void onClick(View v) {
+                salvar();
+                finish();
+
+        }} );
 
 
 
@@ -367,6 +375,7 @@ public class Formulario extends AppCompatActivity {
         {
 
             MessageBox.show(this,"Erro","Erro ao salvar  os dados "+ ex.getMessage());
+
 
         }
     }

@@ -43,11 +43,21 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_formulario" />
+    <include layout="@layout/content_formulario"
+        android:id="@+id/contentform" />
 
     <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin" app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end" android:src="@android:drawable/ic_menu_camera" />
+        app:layout_anchorGravity="bottom|end" android:src="@android:drawable/ic_menu_camera"
+        app:backgroundTint="#002aff" />
+
+    <android.support.design.widget.FloatingActionButton android:id="@+id/sav"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_gravity="bottom|end"
+        app:layout_anchorGravity="bottom|end" android:src="@android:drawable/ic_menu_save"
+        app:layout_anchor="@id/contentform"
+        app:backgroundTint="#10cc23" />
 
 </android.support.design.widget.CoordinatorLayout>

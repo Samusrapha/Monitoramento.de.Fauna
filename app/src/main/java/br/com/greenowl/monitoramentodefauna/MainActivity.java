@@ -1,7 +1,6 @@
 package br.com.greenowl.monitoramentodefauna;
 
 import android.content.Intent;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,10 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-
-import br.com.greenowl.monitoramentodefauna.App.MessageBox;
 import br.com.greenowl.monitoramentodefauna.Database.Database;
 import br.com.greenowl.monitoramentodefauna.Database.Parse;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.Registros;
@@ -175,7 +171,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.importar) {
             Parse importar = new Parse();
             ArrayList<RegistrosSpp> especies = importar.Importardados(this.getApplicationContext());
             Database = new Database(this);
@@ -187,7 +183,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Especies importadas com sucesso", Toast.LENGTH_SHORT);
         }
 
-            else if (id == R.id.nav_gallery) {
+            else if (id == R.id.exportar) {
 
             Database = new Database(this);
             Conn = Database.getWritableDatabase();

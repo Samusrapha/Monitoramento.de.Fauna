@@ -18,7 +18,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:weightSum="1" >
 
             <TextView
@@ -39,7 +39,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:weightSum="1" >
 
             <TextView
@@ -64,13 +64,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:weightSum="1" >
+            android:weightSum="1"
+            android:nestedScrollingEnabled="false">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Condição Climática : "
+
                 android:id="@+id/textView24" />
 
             <Spinner

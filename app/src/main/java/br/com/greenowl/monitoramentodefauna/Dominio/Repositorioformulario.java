@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.greenowl.monitoramentodefauna.Database.Database;
+import br.com.greenowl.monitoramentodefauna.Database.Parse;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.Registros;
 import br.com.greenowl.monitoramentodefauna.Dominio.Entidade.RegistrosSpp;
+import br.com.greenowl.monitoramentodefauna.MainActivity;
 
 /**
  * Created by Raphael on 05/03/2016.
@@ -23,7 +26,7 @@ public class Repositorioformulario  {
 
     private Database database;
     private SQLiteDatabase conn;
-
+    private br.com.greenowl.monitoramentodefauna.Database.Database Database;
     public Repositorioformulario(SQLiteDatabase conn)
     {
         this.conn=conn;

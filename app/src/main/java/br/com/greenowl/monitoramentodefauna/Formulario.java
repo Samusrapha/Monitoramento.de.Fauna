@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -68,6 +69,12 @@ public class Formulario extends AppCompatActivity {
     private Registros registros;
 
 
+//tentativa de camera
+    Button btnTakePhoto;
+    ImageView imgTakenPhoto;
+    private static final int CAM_REQUEST = 1313;
+
+
 
 
     @Override
@@ -88,6 +95,9 @@ public class Formulario extends AppCompatActivity {
 
 
 
+
+
+
         ((Button) findViewById(R.id.btnnovo)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,20 +108,22 @@ public class Formulario extends AppCompatActivity {
         });
 
 
+        class btnTakePhotoClicker implements Button.OnClickListener
+        {
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                new Picture();
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent cameraintent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraintent, CAM_REQUEST);
             }
-        });
+
+        }
 
 
-
-
-
+        
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new btnTakePhotoClicker()) ;
 
 
 

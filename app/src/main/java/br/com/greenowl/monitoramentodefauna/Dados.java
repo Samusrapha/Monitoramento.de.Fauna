@@ -34,6 +34,7 @@ public class Dados extends AppCompatActivity implements View.OnClickListener, Ad
     public static final String LST_DADOS = "DADOS";
 
 
+
     private ListView lstdados;
     private ArrayAdapter<Registros> adpdados;
     private br.com.greenowl.monitoramentodefauna.Database.Database Database;
@@ -95,6 +96,7 @@ public class Dados extends AppCompatActivity implements View.OnClickListener, Ad
 
         Intent it = new Intent(this, Formulario.class);
         it.putExtra(LST_DADOS, registros);
+        it.putExtra("GRUPO","*");
         startActivityForResult(it, 0);
 
     }
@@ -112,6 +114,7 @@ public class Dados extends AppCompatActivity implements View.OnClickListener, Ad
     public void onClick(View view) {
 
         Intent it = new Intent(this, Formulario.class);
+        it.putExtra("GRUPO","*");
         startActivityForResult(it, 0);
     }
 

@@ -201,6 +201,13 @@ public class Formulario extends AppCompatActivity {
         adptransecto.add ("T2");
         adptransecto.add ("T3");
         adptransecto.add ("T4");
+        adptransecto.add ("T5");
+        adptransecto.add ("T6");
+        adptransecto.add ("T7");
+        adptransecto.add ("T8");
+        adptransecto.add ("T9");
+        adptransecto.add ("T10");
+
 
 
         if(Database == null) {

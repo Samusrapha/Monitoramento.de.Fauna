@@ -138,7 +138,11 @@ public class Repositorioformulario  {
     public List<String> getAllLabels(String x){
         List<String> labels = new ArrayList<String>();
         // Select All Query
-        String selectQuery = "SELECT * FROM ESPECIE WHERE GRUPO ='"+x+"'";
+        String selectQuery = "SELECT * FROM ESPECIE WHERE GRUPO in('" + x + "')";
+
+        if (x.equals("*")) {
+             selectQuery = "SELECT * FROM ESPECIE ";}
+
 
 
         Cursor cursor = conn.rawQuery(selectQuery, null);
